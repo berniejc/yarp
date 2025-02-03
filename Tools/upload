@@ -1,0 +1,16 @@
+class="MyProxy"
+lower="myProxy"
+service="yarp"
+echo "cd /home/pi/projects/$lower" > "$PWD/files.txt"
+echo $1
+echo "put $1/$class.dll" >> "$PWD/files.txt"
+echo "put $1/$class.pdb" >> "$PWD/files.txt"
+echo "put $1/$class.deps.json" >> "$PWD/files.txt"
+echo "put $1/$class" >> "$PWD/files.txt"
+echo "put $1/$class.runtimeconfig.json" >> "$PWD/files.txt"
+echo "put $1/appsettings.json" >> "$PWD/files.txt"
+sftp -b $PWD/files.txt pi@house.local
+ssh pi@house.local "sudo systemctl restart $service" 
+echo "yarp myProxy uploaded and restarted"
+
+

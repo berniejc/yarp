@@ -1,0 +1,15 @@
+class="MyProxy"
+lower="myProxy"
+cd ~/Temp/$class/
+mkdir $(date +"%Y_%m_%d_%I_%M_%p")
+echo 'new directory created' + $(date +"%Y_%m_%d_%I_%M_%p")
+cd $(date +"%Y_%m_%d_%I_%M_%p")
+echo "cd /home/pi/projects/$lower" > "$PWD/backup.txt"
+echo "get $class.dll" >> "$PWD/backup.txt"
+echo "get $class.pdb" >> "$PWD/backup.txt"
+echo "get $class.deps.json" >> "$PWD/backup.txt"
+echo "get $class" >> "$PWD/backup.txt"
+echo "get $class.runtimeconfig.json" >> "$PWD/backup.txt"
+echo "get appsettings.json" >> "$PWD/backup.txt"
+echo "backup.txt created"
+sftp -b $PWD/backup.txt pi@house.local

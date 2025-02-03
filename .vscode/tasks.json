@@ -1,0 +1,65 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/MyProxy.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/MyProxy.csproj",
+                "--runtime",
+                "linux-arm64",
+                "--configuration",
+                "Release",
+                "--no-self-contained",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "upload",
+            "command": "${workspaceFolder}/Tools/upload",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}/bin/release/net8.0/linux-arm64/publish"
+            ],
+            "problemMatcher": [
+                "$jshint-stylish"
+            ]
+        },
+        {
+            "label": "backup",
+            "command": "${workspaceFolder}/Tools/backup",
+            "type": "shell",
+            "args": [
+                ""
+            ]
+        },
+        {
+            "label": "backup all",
+            "command": "${workspaceFolder}/Tools/backupall",
+            "type": "shell",
+            "args": [
+                ""
+            ]
+        }
+    ]
+}

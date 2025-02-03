@@ -1,0 +1,7 @@
+cd /home/pi/projects/myProxy
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/MyProxy.dll
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/MyProxy.pdb
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/MyProxy.deps.json
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/MyProxy
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/MyProxy.runtimeconfig.json
+put /Users/bernie/Projects/MyProxy/bin/release/net8.0/linux-arm64/publish/appsettings.json

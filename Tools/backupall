@@ -1,0 +1,6 @@
+cd ~/Temp/MyProxy/
+mkdir $(date +"%Y_%m_%d_%I_%M_%p_FULL")
+cd $(date +"%Y_%m_%d_%I_%M_%p_FULL")
+echo "cd /home/pi/projects/myProxy" > "$PWD/backup.txt"
+echo "get -R *" >> "$PWD/backup.txt"
+sftp -b $PWD/backup.txt pi@house.local
