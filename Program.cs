@@ -1,8 +1,10 @@
 
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using MyProxy.Metrics;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTelemetryConsumer<ForwarderTelemetryConsumer>();
 var config = new ConfigurationBuilder()
     .AddJsonFile($"appsettings.json", optional: false)
     .Build();
@@ -12,6 +14,7 @@ var houseLocalCertificate = new X509Certificate2("../certificates/house.local.pf
 var interavoHouseCertificate = new X509Certificate2("../certificates/house.interavo.co.uk.pfx", password);
 var interavoCertificate = new X509Certificate2("../certificates/interavo.co.uk.pfx",password);
 var campbellCertificate = new X509Certificate2("../certificates/campbellfamily.co.uk.pfx",password);
+var golfcampbellCertificate = new X509Certificate2("../certificates/golf.campbellfamily.co.uk.pfx",password);
 builder.WebHost.UseKestrel(options =>
     {
         options.ListenAnyIP(80);
@@ -47,7 +50,8 @@ builder.WebHost.UseKestrel(options =>
                             ["www.mysurname.co.uk"]=campbellCertificate,
                             ["test.campbellfamily.co.uk"]=campbellCertificate,
                             ["smithsfamily.co.uk"]=campbellCertificate,
-                            ["www.smithsfamily.co.uk"]=campbellCertificate
+                            ["www.smithsfamily.co.uk"]=campbellCertificate,
+                            ["golf.campbellfamily.co.uk"]=golfcampbellCertificate
                         };
                         httpsOptions.ServerCertificateSelector = (context, host) =>
                         {
