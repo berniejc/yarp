@@ -7,3 +7,4 @@
 /Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/publish/MyProxy.pdb
 /Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/publish/System.IO.Hashing.dll
 /Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/publish/Yarp.ReverseProxy.dll
+/Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/publish/Yarp.Telemetry.Consumption.dll

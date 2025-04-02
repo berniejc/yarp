@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "1UX3X0c58So/Hi9PCDpwgJPBegYZahCYvtr97DFjjDY=",
+  "Hash": "scrDHgkCKBlx3GC40gQ/qAxxer6kI/q3/dSlMcCtBB4=",
   "Source": "MyProxy",
   "BasePath": "_content/MyProxy",
   "Mode": "Default",
   "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

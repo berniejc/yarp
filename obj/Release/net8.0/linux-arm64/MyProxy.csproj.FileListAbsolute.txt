@@ -27,3 +27,8 @@
 /Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/MyProxy.pdb
 /Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/MyProxy.genruntimeconfig.cache
 /Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/ref/MyProxy.dll
+/Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/MyProxy.staticwebassets.endpoints.json
+/Users/bernie/Projects/MyProxy/bin/Release/net8.0/linux-arm64/Yarp.Telemetry.Consumption.dll
+/Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/MyProxy.sourcelink.json
+/Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/staticwebassets.build.endpoints.json
+/Users/bernie/Projects/MyProxy/obj/Release/net8.0/linux-arm64/staticwebassets/msbuild.MyProxy.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

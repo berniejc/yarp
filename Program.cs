@@ -9,16 +9,18 @@ var config = new ConfigurationBuilder()
     .AddJsonFile($"appsettings.json", optional: false)
     .Build();
 var password = "sherfieldRG270ED";
-var campbellHouseCertificate = new X509Certificate2("../certificates/home.campbellfamily.co.uk.pfx",password);
+var campbellHomeCertificate = new X509Certificate2("../certificates/home.campbellfamily.co.uk.pfx",password);
+var campbellHouseCertificate = new X509Certificate2("../certificates/house.campbellfamily.co.uk.pfx",password);
 var houseLocalCertificate = new X509Certificate2("../certificates/house.local.pfx",  password);
 var interavoHouseCertificate = new X509Certificate2("../certificates/house.interavo.co.uk.pfx", password);
 var interavoCertificate = new X509Certificate2("../certificates/interavo.co.uk.pfx",password);
 var campbellCertificate = new X509Certificate2("../certificates/campbellfamily.co.uk.pfx",password);
 var golfcampbellCertificate = new X509Certificate2("../certificates/golf.campbellfamily.co.uk.pfx",password);
+var interavoPlusCertificate = new X509Certificate2("../certificates/interavo.plus.com.pfx",password);
 builder.WebHost.UseKestrel(options =>
     {
         options.ListenAnyIP(80);
-        if (campbellHouseCertificate != null)
+        if (campbellHomeCertificate != null)
         {
             options.Listen(IPAddress.Any, 443, listenOptions =>
             {
@@ -27,7 +29,11 @@ builder.WebHost.UseKestrel(options =>
                         var certificates = new Dictionary<string, X509Certificate2>(
                             StringComparer.OrdinalIgnoreCase)
                         {
-                            ["home.campbellfamily.co.uk"] = campbellHouseCertificate,
+                            ["home.campbellfamily.co.uk"] = campbellHomeCertificate,
+                            ["house.campbellfamily.co.uk"]=campbellHouseCertificate,
+                            ["house.local"]=houseLocalCertificate,
+                            ["house.local"]=houseLocalCertificate,
+                            ["home.interavo.co.uk"]=interavoHouseCertificate,
                             ["house.interavo.co.uk"]=interavoHouseCertificate,
                             ["interavo.co.uk"]=interavoCertificate,
                             ["www.interavo.co.uk"]=interavoCertificate,
@@ -51,7 +57,9 @@ builder.WebHost.UseKestrel(options =>
                             ["test.campbellfamily.co.uk"]=campbellCertificate,
                             ["smithsfamily.co.uk"]=campbellCertificate,
                             ["www.smithsfamily.co.uk"]=campbellCertificate,
-                            ["golf.campbellfamily.co.uk"]=golfcampbellCertificate
+                            ["golf.campbellfamily.co.uk"]=golfcampbellCertificate,
+                            ["leaderboard.sherfieldoaksrollup.org"]=golfcampbellCertificate,
+                            ["interavo.plus.com"]=interavoPlusCertificate,
                         };
                         httpsOptions.ServerCertificateSelector = (context, host) =>
                         {

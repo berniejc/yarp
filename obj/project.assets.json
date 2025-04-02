@@ -36,6 +36,75 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Yarp.Telemetry.Consumption/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Yarp.ReverseProxy": "2.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Yarp.Telemetry.Consumption.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Yarp.Telemetry.Consumption.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    },
+    "net8.0/linux-arm64": {
+      "System.IO.Hashing/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Yarp.ReverseProxy/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Hashing": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Yarp.ReverseProxy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Yarp.ReverseProxy.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Yarp.Telemetry.Consumption/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Yarp.ReverseProxy": "2.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Yarp.Telemetry.Consumption.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Yarp.Telemetry.Consumption.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -88,11 +157,31 @@
         "yarp.reverseproxy.2.2.0.nupkg.sha512",
         "yarp.reverseproxy.nuspec"
       ]
+    },
+    "Yarp.Telemetry.Consumption/2.2.0": {
+      "sha512": "84NreSoKD+XBYpvziEHT5Kkck+qkP1cbbo3sSWoZSP342SfkFXMX8PyeRhjIoM/eQAXz1SS0jvYAEkWuEic5Kg==",
+      "type": "package",
+      "path": "yarp.telemetry.consumption/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net6.0/Yarp.Telemetry.Consumption.dll",
+        "lib/net6.0/Yarp.Telemetry.Consumption.xml",
+        "lib/net7.0/Yarp.Telemetry.Consumption.dll",
+        "lib/net7.0/Yarp.Telemetry.Consumption.xml",
+        "lib/net8.0/Yarp.Telemetry.Consumption.dll",
+        "lib/net8.0/Yarp.Telemetry.Consumption.xml",
+        "yarp.telemetry.consumption.2.2.0.nupkg.sha512",
+        "yarp.telemetry.consumption.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Yarp.ReverseProxy >= 2.2.0"
+      "Yarp.ReverseProxy >= 2.2.0",
+      "Yarp.Telemetry.Consumption >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -133,13 +222,18 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
           "Yarp.ReverseProxy": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Yarp.Telemetry.Consumption": {
             "target": "Package",
             "version": "[2.2.0, )"
           }
@@ -155,6 +249,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-arm64",
+            "version": "[8.0.13, 8.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -163,7 +263,12 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "linux-arm64": {
+        "#import": []
       }
     }
   }

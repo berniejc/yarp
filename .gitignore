@@ -1,2 +1,5 @@
-bin/*
-obj/*
+[Bb]in/
+[Oo]bj/
+obj/Debug/net8.0/MyProxy.AssemblyInfo.cs
+obj/Debug/net8.0/MyProxy.AssemblyInfoInputs.cache
+obj/Debug/net8.0/MyProxy.GeneratedMSBuildEditorConfig.editorconfig
